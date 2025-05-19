@@ -66,7 +66,7 @@ def main(user_input=None, target_env="browser"):
         if user_input:  # For non-interactive mode with initial input
             items.append({"role": "user", "content": user_input})
             # Assuming run_full_turn handles further interaction or is a one-shot
-            agent.run_full_turn(items, debug=True, show_images=True)
+            agent.run_full_turn(items, debug=True, show_images=False)
         else:  # Interactive loop
             while True:
                 try:
@@ -76,7 +76,7 @@ def main(user_input=None, target_env="browser"):
                         break
                     items.append({"role": "user", "content": cli_input})
                     output_items = agent.run_full_turn(
-                        items, debug=True, show_images=True
+                        items, debug=True, show_images=False
                     )
                     items += output_items
                 except KeyboardInterrupt:
